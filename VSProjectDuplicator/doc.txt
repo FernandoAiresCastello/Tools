@@ -1,0 +1,12 @@
+
+1. Copiar pasta inteira do projeto original (NOME_PROJ_ORIG) e renomear a cópia para o nome do projeto novo (NOME_PROJ_NOVO)
+2. Dentro da pasta NOME_PROJ_NOVO, renomear a pasta NOME_PROJ_ORIG por NOME_PROJ_NOVO
+3. Dentro da pasta NOME_PROJ_NOVO/NOME_PROJ_NOVO, renomear os seguintes arquivos para NOME_PROJ_NOVO:
+	NOME_PROJ_ORIG.sln
+	NOME_PROJ_ORIG.vcxproj
+	NOME_PROJ_ORIG.vcxproj.user
+	NOME_PROJ_ORIG.vcxproj.filters
+4. Ainda dentro da pasta NOME_PROJ_NOVO/NOME_PROJ_NOVO, remova a pasta Debug caso exista
+5. Alterar todas as ocorrências de NOME_PROJ_ORIG por NOME_PROJ_NOVO dentro dos seguintes arquivos:
+	NOME_PROJ_NOVO.sln
+	NOME_PROJ_NOVO.vcxproj
