@@ -231,7 +231,8 @@
             this.CmbFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbFormat.FormattingEnabled = true;
             this.CmbFormat.Items.AddRange(new object[] {
-            "Hex RGBA (0xRRGGBBAA)"});
+            "Hex RGBA (0xRRGGBBAA)",
+            "Hex ARGB (0xAARRGGBB)"});
             this.CmbFormat.Location = new System.Drawing.Point(64, 85);
             this.CmbFormat.Name = "CmbFormat";
             this.CmbFormat.Size = new System.Drawing.Size(177, 21);

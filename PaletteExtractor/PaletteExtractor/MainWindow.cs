@@ -3,6 +3,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Text;
 
 namespace PaletteExtractor
 {
@@ -42,8 +44,9 @@ namespace PaletteExtractor
 
                 PalettePictureBox.Refresh();
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
             }
         }
 
@@ -51,20 +54,32 @@ namespace PaletteExtractor
         {
             List<Color> colors = PalettePictureBox.ExtractColors();
 
-            string data = "Colors extracted: " + colors.Count + Environment.NewLine + Environment.NewLine;
+            StringBuilder data = new StringBuilder();
+            data.Append("Colors extracted: " + colors.Count + Environment.NewLine + Environment.NewLine);
 
             foreach (Color color in colors)
             {
+                data.Append(TxtPrefix.Text);
+
                 if (CmbFormat.SelectedIndex == 0)
-                    data += TxtPrefix.Text + ToHexRgba(color) + TxtSuffix.Text + Environment.NewLine;
+                    data.Append(ToHexRgba(color));
+                else if (CmbFormat.SelectedIndex == 1)
+                    data.Append(ToHexArgb(color));
+
+                data.Append(TxtSuffix.Text + Environment.NewLine);
             }
 
-            TxtData.Text = data;
+            TxtData.Text = data.ToString();
         }
 
         private string ToHexRgba(Color color)
         {
             return string.Format("0x{0:X2}{1:X2}{2:X2}{3:X2}", color.R, color.G, color.B, color.A);
+        }
+
+        private string ToHexArgb(Color color)
+        {
+            return string.Format("0x{0:X2}{1:X2}{2:X2}{3:X2}", color.A, color.R, color.G, color.B);
         }
 
         private void BtnCopy_Click(object sender, EventArgs e)
